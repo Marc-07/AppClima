@@ -10,5 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
 function buscarClima (e) {
     e.preventDefault();
 
-    console.log("Buscando el clima...")
+    //Validar el formulario
+    const ciudad = document.querySelector("#ciudad").value;
+    const pais = document.querySelector("#pais").value;
+
+    if(ciudad.trim() === "" || pais === ""){
+        //Hubo un error
+        mostrarError("Todos los campos son obligatorios");
+
+        return;
+    } 
+}
+
+function mostrarError (mensaje){
+    console.log(mensaje);
 }
