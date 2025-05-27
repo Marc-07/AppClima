@@ -1,0 +1,9 @@
+# Ignorar módulos de Node.js
+node_modules/
+package-lock.json
+
+dist/
+build/
+
+.vscode/
+
