@@ -68,17 +68,34 @@ function consultarAPI(ciudad, pais){
 }
 
 function mostrarClima(datosClima) {
-    const { main: {temp, temp_max, temp_min} } = datosClima;
+    const { name, main: {temp, temp_max, temp_min} } = datosClima;
 
     const centigrados = (parseInt(temp - 273.15));
+    const max = (parseInt(temp_max - 273.15));
+    const min = (parseInt(temp_min - 273.15));
+
+    const nombreCiudad = document.createElement("P");
+    nombreCiudad.textContent = `Clima en: ${name}`;
+    nombreCiudad.classList.add("text-center", "font-bold", "text-2xl");
 
     const tempActual = document.createElement("P");
     tempActual.innerHTML = `${centigrados} &#8451`;
     tempActual.classList.add("font-bold", "text-6xl");
 
+    const tempMax = document.createElement("P");
+    tempMax.innerHTML = `Max: ${max} &#8451`
+    tempMax.classList.add("text-xl", "py-3");
+
+    const tempMin = document.createElement("P");
+    tempMin.innerHTML = `Min: ${min} &#8451`
+    tempMin.classList.add("text-xl");
+
     const resultadoDiv = document.createElement("DIV");
     resultadoDiv.classList.add("text-center", "text-white", "py-10");
+    resultadoDiv.appendChild(nombreCiudad);
     resultadoDiv.appendChild(tempActual);
+    resultadoDiv.appendChild(tempMax);
+    resultadoDiv.appendChild(tempMin);
 
     resultado.appendChild(resultadoDiv);
     
